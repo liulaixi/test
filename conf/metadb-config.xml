@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence>
+	<persistence-unit name="test">
+		<!-- 主键生成器 -->
+		<generator name="uuid" class="com.hxrainbow.hxbos.metadb.orm.id.UUIDGenerator"/>
+		<cache-provider class="com.hxrainbow.hxbos.metadb.orm.cache.EhCacheProvider"/>
+		<lock-provider class="com.hxrainbow.hxbos.metadb.orm.lock.LocalLockerProvider"/>
+		<!-- 实体类指定，可以配置多个扫描路径和多个类 -->
+		<!--<package-scan>com.hxrainbow.hxbos.metadb.orm.mdb</package-scan>-->
+		<package-scan>laixi</package-scan>
+		<!--<package-scan>test.object</package-scan>-->
+		
+		<!-- 数据库设置 -->
+		<properties>
+			<property name="nopool.driver" value="com.mysql.jdbc.Driver" />
+			<property name="nopool.url" value="jdbc:mysql://localhost/hxbos_test" />
+			<property name="nopool.user" value="root" />
+			<property name="nopool.password" value="123456" />
+			<!-- Sql Output Config -->
+			<property name="show_sql" value="true"/>
+			<property name="format_sql" value="false"/>
+			<!-- Distributed Lock Server Config -->
+			<property name="lock.server" value="localhost:2181"/>
+			<property name="lock.sessionTimeout" value="5000"/>
+			<!-- Auto Create Table Config true-create/update false-not create -->
+			<property name="metadb.create_table" value="true"/>
+			<!-- c3p0数据库连接池 对应的c3p0参数进行设置
+			<property name="c3p0.driver" value="com.mysql.jdbc.Driver" />
+			<property name="c3p0.url" value="jdbc:mysql://localhost/test" />
+			<property name="c3p0.user" value="root" />
+			<property name="c3p0.password" value="admin" />
+			 -->
+			<!-- Proxool数据库连接池 对应的proxool参数进行设置
+			<property name="proxool.driver" value="com.mysql.jdbc.Driver" />
+			<property name="proxool.url" value="jdbc:mysql://localhost/test" />
+			<property name="proxool.user" value="root" />
+			<property name="proxool.password" value="admin" />
+			 -->
+			 <!-- Jndi数据库连接池
+			<property name="jndi.name" value="java:/mysource" />
+			 -->
+			<property name="dialect" value="mysql"/>
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="test1">
+		<!-- 主键生成器 -->
+		<generator name="uuid" class="com.hxbos.orm.id.UUIDGenerator"/>
+		
+		<!-- 实体类指定，可以配置多个扫描路径和多个类 -->
+		<package-scan>test.object</package-scan>
+		
+		<!-- 数据库设置 -->
+		<properties>
+			<property name="nopool.driver" value="com.mysql.jdbc.Driver" />
+			<property name="nopool.url" value="jdbc:mysql://localhost/hxbos_test" />
+			<property name="nopool.user" value="root" />
+			<property name="nopool.password" value="123456" />
+			<property name="show_sql" value="true"/>
+			<property name="format_sql" value="false"/>
+			<!-- c3p0数据库连接池 对应的c3p0参数进行设置
+			<property name="c3p0.driver" value="com.mysql.jdbc.Driver" />
+			<property name="c3p0.url" value="jdbc:mysql://localhost/test" />
+			<property name="c3p0.user" value="root" />
+			<property name="c3p0.password" value="admin" />
+			 -->
+			<!-- Proxool数据库连接池 对应的proxool参数进行设置
+			<property name="proxool.driver" value="com.mysql.jdbc.Driver" />
+			<property name="proxool.url" value="jdbc:mysql://localhost/test" />
+			<property name="proxool.user" value="root" />
+			<property name="proxool.password" value="admin" />
+			 -->
+			 <!-- Jndi数据库连接池
+			<property name="jndi.name" value="java:/mysource" />
+			 -->
+			<property name="dialect" value="mysql"/>
+		</properties>
+	</persistence-unit>
+</persistence>
+
